@@ -36,16 +36,16 @@ const save: Save = async (options = {}, callback?: Callback) => (suiteObj) => {
       callback(fileContent, opt)
     }
 
-    try{
-      const path = require('path');
-      const fs = require('fs-extra');
-      const fullPath = path.join(opt.folder, `${fileName}.${opt.format}`)
-      fs.ensureDirSync(opt.folder)
-      fs.writeFileSync(fullPath, fileContent)
-      console.log(kleur.cyan(`\nSaved to: ${fullPath}`))
-    }catch(err){
-      console.log(`Couldn't save a file`, err)
-    }
+    // try{
+    //   const path = require('path');
+    //   const fs = require('fs-extra');
+    //   const fullPath = path.join(opt.folder, `${fileName}.${opt.format}`)
+    //   fs.ensureDirSync(opt.folder)
+    //   fs.writeFileSync(fullPath, fileContent)
+    //   console.log(kleur.cyan(`\nSaved to: ${fullPath}`))
+    // }catch(err){
+    //   console.log(`Couldn't save a file`, err)
+    // }
   })
 
   return suiteObj
