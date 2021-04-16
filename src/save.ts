@@ -16,7 +16,7 @@ const defaultOptions: Opt = {
 
 type Callback = (content: string, options:Opt) => void;
 
-type Save = (options?: SaveOptions) => Promise<(suiteObj: Suite) => Suite>
+type Save = (options?: SaveOptions, callback?: Callback) => Promise<(suiteObj: Suite) => Suite>
 
 /**
  * Saves results to a file
