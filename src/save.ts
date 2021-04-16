@@ -1,7 +1,5 @@
 import { Event, Suite } from 'benchmark'
-import * as fs from 'fs-extra'
 import * as kleur from 'kleur'
-import * as path from 'path'
 import { SaveOptions, Summary } from './internal/common-types'
 import getSummary from './internal/getSummary'
 import prepareFileContent from './internal/prepareFileContent'
@@ -16,12 +14,14 @@ const defaultOptions: Opt = {
   format: 'json',
 }
 
+type Callback = (content: string, options:Opt) => void;
+
 type Save = (options?: SaveOptions) => Promise<(suiteObj: Suite) => Suite>
 
 /**
  * Saves results to a file
  */
-const save: Save = async (options = {}) => (suiteObj) => {
+const save: Save = async (options = {}, callback?: Callback) => (suiteObj) => {
   const opt = { ...defaultOptions, ...options } as Opt
 
   suiteObj.on('complete', (event: Event) => {
@@ -29,15 +29,23 @@ const save: Save = async (options = {}) => (suiteObj) => {
 
     const fileName =
       typeof opt.file === 'function' ? opt.file(summary) : opt.file
-    const fullPath = path.join(opt.folder, `${fileName}.${opt.format}`)
-
+  
     const fileContent = prepareFileContent(summary, opt)
 
-    fs.ensureDirSync(opt.folder)
+    if(callback){
+      callback(fileContent, opt)
+    }
 
-    fs.writeFileSync(fullPath, fileContent)
-
-    console.log(kleur.cyan(`\nSaved to: ${fullPath}`))
+    try{
+      const path = require('path');
+      const fs = require('fs-extra');
+      const fullPath = path.join(opt.folder, `${fileName}.${opt.format}`)
+      fs.ensureDirSync(opt.folder)
+      fs.writeFileSync(fullPath, fileContent)
+      console.log(kleur.cyan(`\nSaved to: ${fullPath}`))
+    }catch(err){
+      console.log(`Couldn't save a file`, err)
+    }
   })
 
   return suiteObj

@@ -129,3 +129,8 @@ Initial release.
 
 - Updated dependencies
 - Fixed precision issues for slow cases
+
+## 3.6.16
+
+- Added check for `fs-extra` and `path` modules, so library can run in react-native
+- Added callback to receive report data in the code

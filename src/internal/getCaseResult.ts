@@ -1,5 +1,5 @@
 import { Event } from 'benchmark'
-import { calc as median } from 'stats-median'
+import { median } from './median'
 import { CaseResult, Target } from './common-types'
 
 type GetCaseResult = (event: Event) => CaseResult

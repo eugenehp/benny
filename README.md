@@ -1,12 +1,12 @@
 # Benny - a dead simple benchmarking framework
 
-![npm](https://img.shields.io/npm/v/benny)
-![CircleCI](https://img.shields.io/circleci/build/github/caderek/benny)
-![David](https://img.shields.io/david/caderek/benny)
-![Codecov](https://img.shields.io/codecov/c/github/caderek/benny)
-![GitHub](https://img.shields.io/github/license/caderek/benny)
+![npm](https://img.shields.io/npm/v/@ehp/benny)
+![CircleCI](https://img.shields.io/circleci/build/github/eugenehp/benny)
+![David](https://img.shields.io/david/eugenehp/benny)
+![Codecov](https://img.shields.io/codecov/c/github/eugenehp/benny)
+![GitHub](https://img.shields.io/github/license/eugenehp/benny)
 
-![Example](https://raw.githubusercontent.com/caderek/benny/master/benny.gif)
+![Example](https://raw.githubusercontent.com/eugenehp/benny/master/benny.gif)
 
 ## Table of contents
 
@@ -822,6 +822,15 @@ You can run all the examples locally if you want. Just remember to run `npm i` o
 
 <a id="license"></a>
 
+## Sponsorship
+
+Thank you to our sponsors:
+
+[<img width="300px" src="https://user-images.githubusercontent.com/1857263/114124204-c4e1eb80-98a8-11eb-80ab-64683c24bbc5.png" alt="Reactive Lions™" target="_blank">](https://www.reactivelions.com)
+
 ## License
 
-Project is under open, non-restrictive [ISC license](LICENSE.md).
+[MIT](./LICENSE)
+
+Copyright (c) 2019-2021 Maciej Cąderek
+Copyright (c) 2016-2021 Eugene Hauptmann
